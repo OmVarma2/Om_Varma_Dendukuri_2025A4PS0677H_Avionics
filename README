@@ -30,6 +30,8 @@ To smoothen the graph I have used two approaches 1.Low pass filters 2.Gaussian s
 
 These are the ways I have used to try to smoothen the real world noisy data
 
+The file names are important so make sure they are the same!
+
 TASK 2:
 
 Regarding the arduino circuit to detect whether the device is ascending, descending or at apogee
@@ -47,4 +49,5 @@ Red LED - Ascending
 This is how I have dealt with the tasks given
 
 Thank you!
+
 
