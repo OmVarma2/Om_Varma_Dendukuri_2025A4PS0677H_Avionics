@@ -1,0 +1,76 @@
+//Defining variables
+
+double sensor = 0;
+int LedAscent = 13;
+int LedApogee = 12;
+int LedDescent = 8;
+double Force;
+double Pressure;
+const int AverageNum = 5;// The number of previous elements taken into consideration float
+//lower the more close to the noise data
+double AllPressures[AverageNum];
+double SumOfLastTenPressures = 0;
+double SmoothPressure;
+double LastSmoothPressure;
+int timecounter = 0;
+
+void setup() { 
+  
+  pinMode(A0, INPUT);
+  pinMode(LedDescent, OUTPUT);
+  pinMode(LedApogee, OUTPUT);
+  pinMode(LedAscent, OUTPUT);
+  
+  //creating the AllPressures list
+  for (int i = 0; i < AverageNum; i++) { 
+    AllPressures[i] = 0.0; } Serial.begin(9600); 
+} 
+
+void loop() { 
+  
+  //getting data from sensor
+  sensor = analogRead(A0);
+  Serial.print("sensor = ");
+  
+  //sensor 0 --> force 0N 
+  //sensor 1023 --> force 10N 
+  
+  //force and pressure calculation
+  Force = ((10.0/1023.0) * (sensor));
+  Pressure = (Force)*(100);
+  
+  //To print the data(for checking)
+  Serial.print("Sensor value = ");
+  Serial.println(sensor);
+  Serial.print("Force = ");
+  Serial.println(Force);
+  Serial.print("Pressure = ");
+  Serial.println(Pressure);
+  
+  //methond of calculating average(explained in README)
+  SumOfLastTenPressures -= AllPressures[timecounter];
+  AllPressures[timecounter] = Pressure;
+  SumOfLastTenPressures += AllPressures[timecounter];
+  
+  timecounter = (timecounter + 1) % AverageNum; 
+  SmoothPressure = SumOfLastTenPressures/AverageNum; 
+  
+  //altitude test based on change in pressure
+  if (SmoothPressure < LastSmoothPressure){ 
+    digitalWrite(LedAscent, HIGH);
+    digitalWrite(LedDescent, LOW);
+    digitalWrite(LedApogee, LOW); 
+  } else if (SmoothPressure > LastSmoothPressure) { 
+    digitalWrite(LedAscent, LOW);
+    digitalWrite(LedApogee, LOW);
+    digitalWrite(LedDescent, HIGH); 
+  } else { 
+    digitalWrite(LedAscent, LOW);
+    digitalWrite(LedApogee, HIGH);
+    digitalWrite(LedDescent, LOW);
+  } 
+  LastSmoothPressure = SmoothPressure;
+  
+  //delay between repeat
+  delay(100); 
+}
