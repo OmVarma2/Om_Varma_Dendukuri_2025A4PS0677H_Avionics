@@ -3,7 +3,13 @@ README
 Hi, I'm Om Varma Dendukuri 
 ID NUMBER: 2025A4PS0677H
 
-This is the code regarding task 1 of aviation of JANUS. The folder contains 4 files LiveCSVgenerator.py, Raw_Test_Flight_Data.csv, Real_Time.csv, TestData.py.
+This is the code regarding task 1 of aviation of JANUS.
+
+TASK 1:
+
+Reading the graphing of the real time data.
+
+The 4 files LiveCSVgenerator.py, Raw_Test_Flight_Data.csv, Real_Time.csv, TestData.py consist of this task.
 
 LiveCSVgenerator shifts the data from  Raw_Test_Flight_Data.csv to Real_Time.csv which then is displayed using the TestData.py program.
 
@@ -24,4 +30,21 @@ To smoothen the graph I have used two approaches 1.Low pass filters 2.Gaussian s
 
 These are the ways I have used to try to smoothen the real world noisy data
 
+TASK 2:
+
+Regarding the arduino circuit to detect whether the device is ascending, descending or at apogee
+
+The ardiuno circuit is given in Arduino Circuit.png
+The code is given in ArdiunoCode20250677.txt
+
+I have achieved the smoothening of the real time noisy data by taking the average of the previous AverageNum(A variable with number changeble) numbers
+
+The Leds indicate the state of the device
+Green LED - Descending
+Yellow LED + Buzzer = apogee
+Red LED - Ascending
+
+This is how I have dealt with the tasks given
+
 Thank you!
+
