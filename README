@@ -1,0 +1,27 @@
+README
+
+Hi, I'm Om Varma Dendukuri 
+ID NUMBER: 2025A4PS0677H
+
+This is the code regarding task 1 of aviation of JANUS. The folder contains 4 files LiveCSVgenerator.py, Raw_Test_Flight_Data.csv, Real_Time.csv, TestData.py.
+
+LiveCSVgenerator shifts the data from  Raw_Test_Flight_Data.csv to Real_Time.csv which then is displayed using the TestData.py program.
+
+Please use the Raw_Test_Flight_Data.csv provided here since I have modified it.
+
+By adding the data live to Real_Time.csv it kind of simulates the process of getting data real time.
+
+First run LiveCSVgenerator.py then TestData.py(The order doesn't really matter but if LiveCSVgenerator.py is not running then TestData.py will show a static graph).
+
+I decided to handle the error in the data by assigning the previous value to the error time.
+
+To calculate altitude I used international standard atmosphere (ISA) model(formula in the code) and for the velocity was calculated by change in altitude with respect to time.
+
+To smoothen the graph I have used two approaches 1.Low pass filters 2.Gaussian smoothening.
+
+1. Low pass filters: It uses the formula a*current_value + (1-a)*prev_value where a is called the smoothening factor. Changing the value of a changes how the graph smoothens(a=0, const graph)(a=1, same noise graph)
+2.Gaussian smoothening: It is a type of weighted moving average.
+
+These are the ways I have used to try to smoothen the real world noisy data
+
+Thank you!
