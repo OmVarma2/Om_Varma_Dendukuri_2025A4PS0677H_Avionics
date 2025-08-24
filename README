@@ -36,7 +36,7 @@ TASK 2:
 
 Regarding the arduino circuit to detect whether the device is ascending, descending or at apogee
 
-The ardiuno circuit is given in Arduino Circuit.png
+The ardiuno circuit is given in ArduinoCircuit20250677.png
 The code is given in ArdiunoCode20250677.txt
 
 I have achieved the smoothening of the real time noisy data by taking the average of the previous AverageNum(A variable with number changeble) numbers
@@ -49,5 +49,6 @@ Red LED - Ascending
 This is how I have dealt with the tasks given
 
 Thank you!
+
 
 
