@@ -2,8 +2,8 @@ README
 
 Hi, I'm Om Varma Dendukuri 
 ID NUMBER: 2025A4PS0677H
-
 This is the code regarding task 1 of aviation of JANUS.
+
 
 TASK 1:
 
@@ -32,6 +32,7 @@ These are the ways I have used to try to smoothen the real world noisy data
 
 The file names are important so make sure they are the same!
 
+
 TASK 2:
 
 Regarding the arduino circuit to detect whether the device is ascending, descending or at apogee
@@ -41,14 +42,21 @@ The code is given in ArdiunoCode20250677.txt
 
 I have achieved the smoothening of the real time noisy data by taking the average of the previous AverageNum(A variable with number changeble) numbers
 
+This average of the previous numbers is based on a really intersting concept where cyclicty of the remainders is used. Any number N can be written in the form of
+N = 10k + r
+where k, r are some unique constants k is the quotient, r is the remainder. As the value of N increases r cycles between 0 to 9 and this is used to index an array containing previos values and changes it to the new value.
+The sum of the elements of the array divided by the number of elements (AverageNum elements) is the Average.
+
 The Leds indicate the state of the device
-Green LED - Descending
-Yellow LED + Buzzer = apogee
-Red LED - Ascending
+Green LED --> Descending
+Yellow LED + Buzzer --> apogee
+Red LED --> Ascending
+
 
 This is how I have dealt with the tasks given
 
 Thank you!
+
 
 
 
